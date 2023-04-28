@@ -1,0 +1,67 @@
+create table student(
+student_ID int primary key not null,
+student_name varchar(30) not null,
+student_marks int not null
+);
+insert into student values 
+(2000,'madhu',99),(2001,'mahesh',98),(2002,'pandu',97),(2003,'lochan',96);
+insert into student values 
+(2098,'abhi',96),(2008,'jayram',80),(2010,'kiran',78),(2011,"murthy",90);
+select * from student;
+select * from student where student_marks < 99;
+select * from student where student_marks > 99;
+select * from student where student_marks > 10;
+select * from student where student_name ="madhu" and student_ID = 20000 and student_marks = 99;
+select student_ID from student where student_name = "madhu";
+select * from student where student_marks <>99;
+select * from student where student_marks !=99;
+select * from student where student_marks between 95 and 99;
+-- in order to arrange marks in order by using keyword (order by )-by default the order will be ascending order.
+select * from student where student_marks between 95 and 99 order by student_marks;
+-- to arrange in ascending order by using ASC keyword
+select * from student where student_marks between 95 and 99 order by student_marks asc;
+-- to arrange in descending order by using DESC keyword
+select * from student where student_marks between 95 and 99 order by student_marks desc;
+-- how to display remainig except not required value 
+select * from student where not student_marks  = 98;
+-- inorder to get distinct value from group of values use DISTINCT keyword.
+select distinct student_name from student;
+-- we can use only one primary key in atable.
+-- in order to count how many distinct objects exist we use COUNT keyword
+select count(Distinct(student_marks)) from student;
+select count(student_marks)  from student;
+select * from student where not student_marks =99 and not student_marks =98;
+-- we can use LIMIt it allows only prescribed number of rows be printed.
+select * from student LIMIT 3;
+select * from student LIMIT 9;
+select * from student where student_marks = 96 LIMIT 1;
+-- use of group by is to group or combine all  duplicate values.
+select count(student_marks),student_marks from student group by student_marks;
+select student_marks from student group by student_marks;
+select * from student where student_name ="madhu"  order by student_marks  LIMIT 2;
+
+
+-- new data base.
+create table DOB(
+DATE date not null);
+
+insert into DOB values('2001-11-09');
+select * from DOB;
+
+
+
+create table sales(
+salesman_id int primary key not null,
+name varchar(30) not null,
+city varchar(30) not null,
+comissions float not null
+);
+select * from sales;
+insert into sales 
+values(1,"jhon",'Vizag',0),(2,"wick","guntur",1.23),
+(3,'tom','paris',4.5),(4,'cruise','france',3.33);
+
+select name , comissions from sales;
+select * from sales order by salesman_id;
+
+
